@@ -38,7 +38,7 @@ const navigation = [
 
   { name: 'Orders', href: '/orders', icon: ClipboardDocumentListIcon },
   { name: 'Payments', href: '/Payments', icon: CreditCardIcon  },
-  { name: 'Returns', href: '/Returns', icon: TbReportSearch },
+  { name: 'Services', href: '/Returns', icon: TbReportSearch },
 
   { name: 'Customers', href: '/Customer', icon: UsersIcon },
   { name: 'Reports', href: '/Reports', icon: FolderIcon },
