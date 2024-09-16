@@ -285,7 +285,7 @@ export default function Payments() {
       <div className="mt-6 bg-white p-6 rounded-lg shadow-md">
         {/* Header and filter buttons section */}
         <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-4">Returns</h2>
+          <h2 className="text-xl font-semibold mb-4">Services</h2>
           <div className="flex justify-center space-x-2">
             <Button
               variant="contained"

@@ -3922,7 +3922,7 @@ const [addressTableData, setAddressTableData] = useState([]); // Initial state i
 
   return (
     <>
-      <div className="p-6 mr-10 mb-7 sm:px-6 lg:px-8 pt-4 ml-10 lg:ml-80 w-1/8 mt-8 bg-white shadow-lg rounded-lg">
+      <div className="p-8 mr-10 mb-7 sm:px-6 lg:px-8 pt-4 ml-10 lg:ml-80 w-1/8 mt-8 bg-white shadow-lg rounded-lg">
         <Box sx={{ width: "100%" }}>
           {/* <Stepper activeStep={activeStep} className="mb-6" alternativeLabel>
             {steps.map((label, index) => (
@@ -4162,6 +4162,10 @@ const [addressTableData, setAddressTableData] = useState([]); // Initial state i
                       />
                     </div>
 
+                    
+ 
+
+
                     {/* Email */}
                     <div className="flex items-center gap-4">
                       <label className="w-1/3 text-xs font-medium text-gray-700">
@@ -4177,6 +4181,17 @@ const [addressTableData, setAddressTableData] = useState([]); // Initial state i
                         }`}
                       />
                     </div>
+                    <div className="flex items-center gap-4">
+    <label className="w-1/3 text-xs font-medium text-gray-700">Alternate Phone Number</label>
+    <input
+      type="text"
+      name="AlternatePhoneNumber"
+      value={customerFormData.AlternatePhoneNumber}
+      onChange={handleCustomerFormChange}
+
+      className={`p-1 w-full border rounded-md ${error ? 'border-red-500' : 'border-gray-400'}`}
+    />
+  </div>
 
                     {/* Password */}
                     <div className="flex items-center gap-4">
@@ -4465,7 +4480,6 @@ const [addressTableData, setAddressTableData] = useState([]); // Initial state i
                         rows="1"
                       />
                     </div>
-                    <div></div>
 
                     <div className="mt-6 flex justify-end gap-4">
                       <button

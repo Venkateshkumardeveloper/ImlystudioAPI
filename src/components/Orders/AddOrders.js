@@ -3319,7 +3319,9 @@ function AddOrders() {
     if (!orderDetails.MaskedCardNumber)
       newErrors.MaskedCardNumber = "MaskedCardNumber Type is required";
     if (!orderDetails.PaymentComments)
-      newErrors.PaymentComments = "PaymentComments comments is required";
+      newErrors.PaymentComments = "PaymentComments  is required";
+    if (!orderDetails.AdvanceAmount)
+      newErrors.AdvanceAmount = "Amount is required";
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       // Add the order to the orders array
@@ -3331,6 +3333,7 @@ function AddOrders() {
         PaymentStatus: "",
         MaskedCardNumber: "",
         PaymentComments: "",
+        AdvanceAmount:"",
       });
     }
   };
@@ -3593,16 +3596,26 @@ function AddOrders() {
           ) : (
             <React.Fragment>
               <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, // Ensure proper grid layout
-                  gap: 2, // Adjust spacing between items
-                  pt: 2,
-                }}
+               sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, // 1 column by default, 2 columns for sm screens and above
+                gap: 2,
+                pt: 2,
+                width: '100%', // Ensure the box takes the full width of the container
+                maxWidth: '100%', // Prevent the box from exceeding the screen width
+                '@media (max-width: 1300px)': {
+                  gridTemplateColumns: "1fr", // Stack fields vertically below 1300px
+                },
+                '@media (max-width: 700px)': {
+                  gridTemplateColumns: "1fr", // Keep one column layout for smaller screens
+                  overflowX: "hidden", // Prevent overflow in the x-direction
+                },
+              }}
+            
               >
                 {activeStep === 0 && (
                   <>
-                    <div className="grid">
+                    <div className="grid ">
 
                       <div className="flex justify-left items-center h-full">
                         <div className="relative flex flex-col w-[32rem] pb-2">
@@ -3794,8 +3807,16 @@ function AddOrders() {
                           <option value="Living">Living</option>
                           <option value="2 BHK">2 BHK</option>
                           <option value="3 BHK">3 BHK</option>
-                          <option value="Others (TV unit, Crockery, Shoe rack, Vanities)">
-                            Others (TV unit, Crockery, Shoe rack, Vanities)
+                          <option value="TV unit">
+                             TV unit
+                          </option>
+                          <option value="Crockery">
+                             Crockery
+                          </option>
+                          <option value=" Shoe rack">
+                            Shoe rack
+                          </option> <option value="Vanities">
+                              Vanities
                           </option>
                         </select>
                         {errors.Type && (
@@ -4708,6 +4729,27 @@ function AddOrders() {
                         </p>
                       )}
                     </div>
+                    <div className="flex ">
+                      <label className="text-xs text-left mt-3 w-1/4 ml-44 font-medium text-gray-700">
+                          Amount
+                        </label>
+
+                        <input
+                          type="number"
+                          name="AdvanceAmount"
+                          value={orderDetails.AdvanceAmount}
+                          onChange={handleChange}
+                         className={` p-1 w-1/4 border rounded-md ${errors.AdvanceAmount
+                            ? "border-red-500"
+                            : "border-gray-300"
+                            }`}
+                        />
+                        {errors.AdvanceAmount && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.AdvanceAmount}
+                          </p>
+                        )}
+                      </div>
                     <div className="relative">
                       <button
                         onClick={handleAddOrderes}
@@ -4728,6 +4770,7 @@ function AddOrders() {
                             <th className="px-4 py-3 font-medium border-r border-gray-300">Payment Status</th>
                             <th className="px-4 py-3 font-medium border-r border-gray-300">Payment Card Number</th>
                             <th className="px-4 py-3 font-medium border-r">Payment Comments</th>
+                            <th className="px-4 py-3 font-medium border-r">Amount</th>
                             <th className="px-4 py-3 font-medium border-r">Edit</th>
                             <th className="px-4 py-3 font-medium">Delete</th>
                           </tr>
@@ -4743,6 +4786,9 @@ function AddOrders() {
                                 </td>
                                 <td className="px-4 py-2 border-r border-gray-300">{order.MaskedCardNumber}</td>
                                 <td className="px-4 py-2 border-r">{order.PaymentComments}</td>
+                                <td className="px-4 py-2 border-r">{order. AdvanceAmount}</td>
+
+                               
                                 <td className="px-4 py-2 border-r border-gray-300">
                                   <button
                                     onClick={''}
