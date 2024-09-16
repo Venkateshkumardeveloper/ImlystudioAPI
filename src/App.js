@@ -30,7 +30,7 @@ import {PaymentProvider} from "./Context/paymentContext";
 import Paymentform from "./components/Payments/Paymentform";
 import AddCustomers from './components/Customer/AddCustomers';
 import UpdateOrder from "./components/Orders/UpdateOrder";
-
+import Returns  from "./components/Returns/Returns"
 function App() {
   const location = useLocation();
   const showNavigation = location.pathname !== "/";
@@ -66,6 +66,8 @@ function App() {
                   <Route path="/Storeform" element={<Storeform />} />
                   {/* <Route path="/Customerform" element={<Customerform />} /> */}
                   <Route path="/update-order" element={<UpdateOrder />} />
+                  <Route path="/Returns" element={<Returns />} />
+
 
 
 

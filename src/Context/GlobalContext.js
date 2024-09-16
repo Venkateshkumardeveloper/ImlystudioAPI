@@ -103,7 +103,7 @@ const GlobalProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://imlystudios-backend-mqg4.onrender.com/api/orders/getAllOrders?page=1&limit=10&searchText=Regular"
+          "https://imlystudios-backend-mqg4.onrender.com/api/orders/getAllOrders?page=1&limit=10"
         );
         const result = await response.json();
         console.log('Fetched result:', result);

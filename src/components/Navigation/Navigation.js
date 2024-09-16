@@ -46,7 +46,7 @@ const navigation = [
   // { name: 'Add Products', href: '/products', icon: FolderIcon },
   { name: 'Users', href: '/user', icon: UsersIcon },
   { name: 'UserRole', href: '/userrole', icon: UsersIcon },
-  { name: 'Production', href: '/production', icon: CogIcon },
+  // { name: 'Production', href: '/production', icon: CogIcon },
 
 
 
