@@ -3815,8 +3815,12 @@ function AddOrders() {
                           </option>
                           <option value=" Shoe rack">
                             Shoe rack
-                          </option> <option value="Vanities">
+                          </option> 
+                          <option value="Vanities">
                               Vanities
+                          </option>
+                          <option value="Others">
+                              Others
                           </option>
                         </select>
                         {errors.Type && (
